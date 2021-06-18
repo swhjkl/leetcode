@@ -18,7 +18,7 @@
 class Solution {
 public:
     ListNode* reverseKGroup(ListNode* head, int k) {
-        ListNode dummy_head = new ListNode;
+        ListNode *dummy_head = new ListNode;
         ListNode *prev_tail = dummy_head;
         while (head) {
             ListNode *tail = head;
@@ -26,6 +26,7 @@ public:
                 tail = tail->next;
             }
             if (!tail) {
+                prev_tail->next = head;
                 break;
             }
             ListNode *next_head = tail->next;
