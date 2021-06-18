@@ -30,16 +30,14 @@ public:
             return root;
         }
         Node *level = root;
-        while (level) {
+        while (level->left) {
             Node *node = level;
             while (node) {
-                if (node->left) {
-                    node->left->next = node->right;
-                    if (node->next) {
-                        node->right->next = node->next->left;
-                    }
+                node->left->next = node->right;
+                if (node->next) {
+                    node->right->next = node->next->left;
                 }
-                node=node->next;
+                node= node->next;
             }
             level = level->left;
         }
